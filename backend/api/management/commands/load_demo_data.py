@@ -22,7 +22,7 @@ class Command(BaseCommand):
             email='',
             address='392 St Saviours Rd, Leicester LE5 4HJ',
             opening_hours='{"monday": "9:00 AM - 6:00 PM", "tuesday": "9:00 AM - 6:00 PM", "wednesday": "9:00 AM - 6:00 PM", "thursday": "9:00 AM - 6:00 PM", "friday": "9:00 AM - 6:00 PM", "saturday": "9:00 AM - 6:00 PM", "sunday": "Closed"}',
-            instagram='https://instagram.com/stayfaded',
+            instagram='https://www.instagram.com/stayfadedbarbersuk/',
             facebook='',
             fresha_url='https://www.fresha.com/a/camthebarber-leicester-392-st-savious-rd-em8f1nii/booking?menu=true&pId=873537&dppub=true',
             hero_title='STAY STYLED. STAY CONFIDENT. STAY FADED.',

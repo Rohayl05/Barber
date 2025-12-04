@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-[#0a0a0a] text-white antialiased;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-white hover:bg-neutral-200 text-black font-semibold rounded-full transition-all duration-300 tracking-wide uppercase text-sm;
+  }
+  
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-6 py-3 border border-white text-white hover:bg-white hover:text-black font-semibold rounded-full transition-all duration-300 tracking-wide uppercase text-sm;
+  }
+  
+  .section-title {
+    @apply font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 tracking-tight;
+  }
+  
+  .section-subtitle {
+    @apply text-neutral-400 text-lg max-w-2xl font-light;
+  }
+
+  .card {
+    @apply bg-[#121212] border border-neutral-800 p-6 rounded-2xl transition-all duration-300 hover:border-neutral-600;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #171717;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #404040;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #525252;
+}
+
+/* Lightbox overlay */
+.lightbox-overlay {
+  @apply fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4;
+}

@@ -1,4 +1,5 @@
-import { Instagram } from 'lucide-react'
+import { useState } from 'react'
+import { ChevronDown, ChevronUp } from 'lucide-react'
 import { useBarbers, useShopInfo } from '../api/hooks'
 import { DEFAULT_FRESHA_URL } from '../api/config'
 import LoadingSpinner from '../components/LoadingSpinner'
@@ -7,8 +8,13 @@ import ErrorMessage from '../components/ErrorMessage'
 function Barbers() {
   const { data: barbers, loading, error } = useBarbers()
   const { data: shopInfo } = useShopInfo()
+  const [expandedBio, setExpandedBio] = useState(null)
 
   const freshaUrl = shopInfo?.fresha_url || DEFAULT_FRESHA_URL
+
+  const toggleBio = (barberId) => {
+    setExpandedBio(expandedBio === barberId ? null : barberId)
+  }
 
   if (loading) return <LoadingSpinner />
   if (error) return <ErrorMessage message={error} />
@@ -69,9 +75,31 @@ function Barbers() {
               {/* Info */}
               <div className="pt-6">
                 {barber.bio && (
-                  <p className="text-neutral-500 text-sm mb-6 line-clamp-3 font-light leading-relaxed">
-                    {barber.bio}
-                  </p>
+                  <div className="mb-6">
+                    <p className={`text-neutral-500 text-sm font-light leading-relaxed whitespace-pre-line ${
+                      expandedBio === barber.id ? '' : 'line-clamp-3'
+                    }`}>
+                      {barber.bio}
+                    </p>
+                    {barber.bio.length > 150 && (
+                      <button
+                        onClick={() => toggleBio(barber.id)}
+                        className="flex items-center gap-1 text-neutral-400 hover:text-white text-xs mt-2 transition-colors"
+                      >
+                        {expandedBio === barber.id ? (
+                          <>
+                            <span>Show less</span>
+                            <ChevronUp className="w-4 h-4" />
+                          </>
+                        ) : (
+                          <>
+                            <span>Read more</span>
+                            <ChevronDown className="w-4 h-4" />
+                          </>
+                        )}
+                      </button>
+                    )}
+                  </div>
                 )}
 
                 <a

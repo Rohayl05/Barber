@@ -1,25 +1,27 @@
-# fly.toml - Fly.io configuration for Barber Shop API
-# Replace "your-barbershop-api" with your chosen app name
+# fly.toml app configuration file generated for your-barbershop-api on 2025-12-04T15:32:41Z
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
 
-app = "your-barbershop-api"
-primary_region = "lhr"  # London - change to your preferred region
+app = 'your-barbershop-api'
+primary_region = 'lhr'
 
 [build]
-  dockerfile = "Dockerfile"
+  dockerfile = 'Dockerfile'
 
 [env]
-  PORT = "8080"
-  DEBUG = "False"
+  DEBUG = 'False'
+  PORT = '8080'
 
 [http_service]
   internal_port = 8080
   force_https = true
-  auto_stop_machines = true
+  auto_stop_machines = 'stop'
   auto_start_machines = true
   min_machines_running = 0
-  processes = ["app"]
+  processes = ['app']
 
 [[vm]]
-  cpu_kind = "shared"
+  cpu_kind = 'shared'
   cpus = 1
   memory_mb = 256

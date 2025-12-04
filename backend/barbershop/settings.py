@@ -9,11 +9,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'your-secret-key-change-in-production')
 
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'True').lower() == 'true'
 
 ALLOWED_HOSTS = os.environ.get(
     'ALLOWED_HOSTS',
-    'localhost,127.0.0.1,plashier-regenia-consciously.ngrok-free.dev'
+    'localhost,127.0.0.1,plashier-regenia-consciously.ngrok-free.dev,your-barbershop-api.fly.dev'
 ).split(',')
 
 
@@ -105,7 +105,13 @@ CORS_ALLOWED_ORIGINS = os.environ.get(
     'http://localhost:5173,http://localhost:3000,https://plashier-regenia-consciously.ngrok-free.dev'
 ).split(',')
 
+# Allow all origins in debug mode, or use regex for Netlify in production
 CORS_ALLOW_ALL_ORIGINS = DEBUG
+
+# Allow all Netlify preview/production URLs
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"^https://.*\.netlify\.app$",
+]
 
 # REST Framework
 REST_FRAMEWORK = {

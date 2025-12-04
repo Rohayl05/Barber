@@ -28,7 +28,7 @@ class Command(BaseCommand):
             hero_title='STAY STYLED. STAY CONFIDENT. STAY FADED.',
             hero_subtitle='At Stay Faded, we cater to your unique needs to elevate your style and confidence! Our skilled barbers provide top-notch haircuts and grooming with personalized styling advice.',
             hero_image_url='https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=2074&auto=format&fit=crop',
-            google_maps_embed='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2421.5!2d-1.0936!3d52.6369!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4877612c1c5c1c1d%3A0x1234567890abcdef!2s392%20St%20Saviours%20Rd%2C%20Leicester%20LE5%204HJ!5e0!3m2!1sen!2suk!4v1701705600000'
+            google_maps_embed='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2421.5!2d-1.0927644!3d52.6310901!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487761a46a85c0b1%3A0x7e21740e9c7a6733!2sSTAY%20FADED!5e0!3m2!1sen!2suk!4v1733337600000'
         )
         self.stdout.write(self.style.SUCCESS(f'Created shop: {shop.shop_name}'))
 
